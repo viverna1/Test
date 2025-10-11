@@ -55,7 +55,5 @@ void print_str(unsigned long long n) {
 
 int main(int argc, char** argv) {
     print_str(16);
-    
-    
     return 0;
 }
