@@ -11,4 +11,4 @@
 - git pull origin main
 
 - git add -A - Добавить все файлы в комит
-- 
+- git hello
