@@ -12,6 +12,6 @@ def printTriangle(lines):
 
 
 lines = [[1]]
-for _ in range(7):
+for _ in range(28):
     lines.append(getNextLine(lines[-1]))
 printTriangle(lines)
