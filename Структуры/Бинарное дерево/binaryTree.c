@@ -29,12 +29,12 @@ int findValue(struct Node* tree, int nodesCount, int valueToFind) {
     struct Node* curNode = tree;
     while (curNode->data != valueToFind) {
         if (curNode->left == NULL && curNode->right == NULL) {
-            return 1;
+            return 0;
         }
         if (valueToFind < curNode->data) curNode = curNode->left;
         else curNode = curNode->right;
     }
-    return 0;
+    return 1;
 }
 
 int minimum(struct Node* tree, int nodesCount) {
@@ -49,11 +49,22 @@ int maximum(struct Node* tree, int nodesCount) {
     return curNode->data;
 }
 
+int isSameTree(struct Node* p, struct Node* q) {
+    if (!p && !q) return 1;
+    if (!p || !q) return 0;
+    if (p->data != q->data) return 0;
+
+    return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+}
+
 int main() {
     int values[9] = {6, 2, 4, 8, 7, 15, 62, 0, 3};
+    int values2[8] = {6, 2, 4, 8, 7, 15, 62, 3};
     struct Node* tree = initTree(values, 9);
+    struct Node* tree2 = initTree(values2, 8);
     
-    printf("%s\n", !findValue(tree, 9, 2) ? "Value found." : "Value not found.");
+    printf("%s\n", findValue(tree, 9, 2) ? "Value found." : "Value not found.");
     printf("Minimum: %d\n", minimum(tree, 9));
     printf("Maximum: %d\n", maximum(tree, 9));
+    printf("%s\n", isSameTree(tree, tree2) ? "Trees is same." : "Trees is not same.");
 }

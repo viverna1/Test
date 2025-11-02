@@ -11,9 +11,14 @@ struct Node {
 struct Node* initTree(int values[], int valuesSize);
 
 /*
- * Return 0 if found, and 1 if not found
+ * Return 1 if found, and 0 if not found
  */
 int findValue(struct Node* tree, int nodesCount, int valueToFind);
+
+/*
+ * Return 1 if same, and 0 if not same
+ */
+int isSameTree(struct Node* p, struct Node* q);
 
 int minimum(struct Node* tree, int nodesCount);
 int maximum(struct Node* tree, int nodesCount);
